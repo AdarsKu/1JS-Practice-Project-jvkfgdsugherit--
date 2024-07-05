@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM ColorPicker</title>
+  <style>
+    body{
+      background-color: rgba(91, 67, 114, 0.387);
+    }
+    #black{
+      background-color: black;
+    }
+    #white{
+      background-color: white;
+    }
+    #gray{
+      background-color: gray;
+    }
+    #pink{
+      background-color: pink;
+    }
+    .choose-color{
+      height: 100px;
+      width: 100px;
+      border: solid black 2px;
+    }
+    .parent{
+      width: 600px;
+      height: auto;
+      display: flex;
+      justify-content: space-evenly;
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <div class="choose-color" id="black"></div>
+    <div class="choose-color" id="white"></div>
+    <div class="choose-color" id="gray"></div>
+    <div class="choose-color" id="pink"></div>
+  </div>
+  <div>
+    Lorem ipsum dolor sit amet.
+  </div>
+</body>
+<script>
+
+const listColor=document.querySelectorAll(".choose-color")
+
+const handleClick=(e)=>{
+  
+document.body.style.backgroundColor=e.target.id
+if(e.target.id==='white')
+document.body.style.color='black'
+else
+document.body.style.color='white'
+
+}
+
+listColor.forEach(element => {
+  element.addEventListener("click",handleClick);
+});
+
+</script>
+</html>

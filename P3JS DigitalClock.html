@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      background-color: #222222;
+      color: aliceblue;
+    }
+    .container{
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .clock{
+      min-width: 80px;
+      min-height: 40px;
+      width: fit-content;
+      height:fit-content;
+      background-color: rgb(43, 91, 91);
+      color: red;
+      border-radius: 10%;
+      font-weight: 700;
+      font-size: 30px;
+      padding: 5px;
+      
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+     <h2>Current Time</h2>
+        <div class="clock">
+         hello
+        </div>
+      </div>
+</body>
+
+<script>
+
+var clock=document.querySelector(".clock")
+
+setInterval(()=>{
+  let date=new Date();
+  clock.innerHTML=date.toLocaleTimeString();
+},10)
+
+</script>
+</html>

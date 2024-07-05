@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body{
+      background-color: #222222;
+      color: aliceblue;
+    }
+    .container{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .header{
+      width: 100%;
+      font-size: 30px;
+      font-weight: 700;
+      background-color: black;
+      text-align: center;
+    }
+  </style>
+  <title>Guessing Game</title>
+</head>
+<body>
+  <div class="container">
+    <div class="header">Number Guessing Game</div>
+    <p class="note">Try and guess a random number between 1 to 100. <br>You have10 attemptss to guess the right number</p>
+
+    <h2 class="msg">Guess a Number</h2>
+    <input id="input" type="number">
+
+    <div class="hint" style="margin:20px">Hint</div>
+
+    <button >Submit</button>
+    <br>
+    <br>
+   
+    <p class="previous">Previous Guess:</p>
+    <p class="remainingChance">Remaining Chance: 10</p>
+  </div>
+</body>
+<script>
+//// values
+let rand=parseInt(Math.random()*100+1);
+let count=10;
+let prev=0;
+
+/// button with event listner
+let btn=document.querySelector("button")
+
+btn.addEventListener('click',()=>{
+  let input=document.querySelector("#input")
+  let x=input.value
+   performOperations(x)
+   input.value=''
+
+   // setting remaing chance count
+   count=count-1
+   document.querySelector('.remainingChance').innerHTML=`Remaining Chance ${count}`
+
+
+   ///// setting previous guess
+   document.querySelector('.previous').innerHTML=`Previous Guess: ${x}`
+
+})
+
+const performOperations=(value)=>{
+  if(value<=100 && value>0)
+  {
+   showMessage(parseInt(value))
+  }
+
+}
+
+const showMessage=(value)=>{
+let hint= document.querySelector(".hint")
+  if(value>rand){
+    hint.innerText='You Entered bigger value'
+  }
+  else if(value<rand){
+     hint.innerText='You Entered smaller value'
+  }else{
+     hint.innerText='Congrats!!! You Won '
+  }
+
+}
+</script>
+</html>
